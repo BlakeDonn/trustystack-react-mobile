@@ -126,6 +126,7 @@ React Navigation is used for handling navigation within the app. The main naviga
 Tests are written using Jest and can be found in the `__tests__` folders. To run the tests:
 ```sh
 yarn test
+```
 
 ## Contributing
 Contributions are welcome! Please read the [contributing guidelines](CONTRIBUTING.md) for more details.
