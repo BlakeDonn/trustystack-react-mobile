@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "native",
-    "slug": "native",
+    "name": "TrustyStack",
+    "slug": "trustystack",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -13,9 +13,11 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.writhkin.trustystack"
     },
     "android": {
+      "package": "com.writhkin.trustystack",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -31,6 +33,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "c31685f3-02c3-4407-93de-92748d01b1cc"
+      }
     }
   }
 }
