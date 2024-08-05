@@ -12,8 +12,8 @@ import {
   PaperProvider,
   withTheme,
 } from 'react-native-paper';
-import Colors from '@/constants/Colors';
 import colors from '../assets/theme/customColors'
+import { useFontsAndTheme } from '../utils/useFontsAndTheme'
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -30,46 +30,27 @@ export const unstable_settings = {
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const [loaded, error] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-    ...FontAwesome.font,
-  });
+  const { fontsLoaded, theme } = useFontsAndTheme();
 
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
-  useEffect(() => {
-    if (error) throw error;
-  }, [error]);
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
+  if (!fontsLoaded) {
     return null;
   }
 
-  return <RootLayoutNav />;
+  return <RootLayoutNav theme={theme} />;
 }
-const theme = {
-  ...DefaultTheme,
-  colors: colors.colors,
-  roundness: 1,
-};
 
 
-function RootLayoutNav() {
+function RootLayoutNav({ theme }) {
   const colorScheme = useColorScheme();
 
   return (
-      <Provider store={store}>
+    <Provider store={store}>
       <PaperProvider theme={theme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-      </Stack>
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+        </Stack>
       </PaperProvider>
-      </Provider >
+    </Provider >
   );
 }

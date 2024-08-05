@@ -1,20 +1,21 @@
 import customColors from '@/assets/theme/customColors';
-import EditScreenInfo from '@/components/common/EditScreenInfo';
-import { Text, View } from '@/components/theme/Themed';
+import { View } from '@/components/theme/Themed';
 import { StyleSheet } from 'react-native';
-import { Button } from 'react-native-paper';
+import { Button, useTheme, Text as Text } from 'react-native-paper';
 
 const { background, buttonSecondary } = customColors.colors
 export default function WelcomeScreen() {
   return (
     <View style={styles.page} lightColor={background}>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <Button mode="contained" dark={false} onPress={() => console.log('hi')} >
-        Get Started
-      </Button>
-      <Button mode="contained" dark={false} onPress={() => console.log('hi')} buttonColor={buttonSecondary}>
-        Learn More
-      </Button>
+      <View style={styles.container} lightColor={background}>
+        <Button mode="contained" dark={false} onPress={() => console.log('hi')} >
+          <Text>Get Started</Text>
+        </Button>
+        <Button mode="contained" dark={false} onPress={() => console.log('hi')} buttonColor={buttonSecondary}>
+          <Text>Learn More</Text>
+        </Button>
+      </View>
     </View>
   );
 }
@@ -26,9 +27,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   container: {
-    flexDirection: 'row',
+    width: '100%',
+    flexDirection: 'column',
     justifyContent: 'space-between',
-    padding: 10,
+    gap: 25,
+    padding: 30,
   },
   title: {
     fontSize: 20,
