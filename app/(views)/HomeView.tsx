@@ -1,14 +1,12 @@
 import EditScreenInfo from '@/components/common/EditScreenInfo';
 import { Text, View } from '@/components/theme/Themed';
 import { StyleSheet } from 'react-native';
+import { Button } from 'react-native-paper';
+import WelcomeScreen from './WelcomeView';
 
-export default function PCPartPickerTab() {
+export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>PC Part picker</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/partpicker.tsx" />
-    </View>
+      <WelcomeScreen />
   );
 }
 
