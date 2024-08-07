@@ -1,8 +1,8 @@
-import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
-import { decrement, increment } from '@/redux/features/counter/counterSlice';
+import React from "react";
+import { View, Text, Button, StyleSheet } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
+import { decrement, increment } from "@/redux/features/counter/counterSlice";
 
 const CounterView = () => {
   const count = useSelector((state: RootState) => state.counter);
@@ -20,8 +20,8 @@ const CounterView = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   countText: {
     fontSize: 24,
@@ -30,4 +30,3 @@ const styles = StyleSheet.create({
 });
 
 export default CounterView;
-

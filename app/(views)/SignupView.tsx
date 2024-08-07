@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { TextInput, Button, Text } from 'react-native-paper';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState, AppDispatch } from '../../redux/store';
-import { setUsername, setEmail, setPassword, setLoading, setError } from '@/redux/features/userAuth/signupSlice';
+import React, { useState } from "react";
+import { View, StyleSheet } from "react-native";
+import { TextInput, Button, Text } from "react-native-paper";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, AppDispatch } from "../../redux/store";
+import {
+  setUsername,
+  setEmail,
+  setPassword,
+  setLoading,
+  setError,
+} from "@/redux/features/userAuth/signupSlice";
 const SignupView = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { username, email, password, loading, error } = useSelector((state: RootState) => state.signup);
+  const { username, email, password, loading, error } = useSelector(
+    (state: RootState) => state.signup,
+  );
 
   const handleSignup = () => {
     dispatch(setLoading(true));
@@ -48,17 +56,16 @@ const SignupView = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
     padding: 16,
   },
   input: {
     marginBottom: 16,
   },
   error: {
-    color: 'red',
+    color: "red",
     marginBottom: 16,
   },
 });
 
 export default SignupView;
-
