@@ -1,12 +1,9 @@
-import EditScreenInfo from '@/components/common/EditScreenInfo';
-import { Text, View } from '@/components/theme/Themed';
 import { StyleSheet } from 'react-native';
 import HomeScreen from '../(views)/HomeView';
-import { withTheme } from 'react-native-paper';
 
 export default function HomeTab() {
   return (
-      <HomeScreen />
+    <HomeScreen />
   );
 }
 

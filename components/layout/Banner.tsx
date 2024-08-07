@@ -3,24 +3,11 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 import { decrement, increment } from '@/redux/features/counter/counterSlice';
 import { Image } from 'react-native';
 
-const Banner = () => {
+const Banner = ({ size = 200 }) => {
   return (
-    <View style={styles.container}>
-      <Image style={{ width: '100%', height: '100%', resizeMode: 'contain' }} source={require('../../assets/images/ccbanner.png')} />
-    </View>
+    <Image style={{ width: '100%', height: size, resizeMode: 'contain' }} source={require('../../assets/images/ccbanner.png')} />
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    height: 200
-  },
-  countText: {
-    fontSize: 24,
-    marginBottom: 16,
-  },
-});
 
 export default Banner;
 
