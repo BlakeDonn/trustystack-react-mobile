@@ -15,6 +15,8 @@ import {
 import Colors from "@/constants/Colors";
 import colors from "../assets/theme/customColors";
 import { ScreenHeader } from "@/components/layout/ScreenHeader";
+import { ApolloProvider } from "@apollo/client";
+import client from "@/services/graphql/apolloClient";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -67,24 +69,26 @@ const headerDeatails = {
 function RootLayoutNav() {
   return (
     <Provider store={store}>
-      <PaperProvider theme={theme}>
-        <Stack
-          screenOptions={{
-            headerShadowVisible: false,
-            headerStyle: {
-              backgroundColor: "#d7eeed",
-            },
-          }}
-        >
-          <Stack.Screen name="(views)/WelcomeView" options={headerDeatails} />
-          <Stack.Screen
-            name="(views)/GetStartedView"
-            options={headerDeatails}
-          />
-          <Stack.Screen name="modal" options={{ presentation: "modal" }} />
-          <Stack.Screen name="(tabs)" options={headerDeatails} />
-        </Stack>
-      </PaperProvider>
+      <ApolloProvider client={client}>
+        <PaperProvider theme={theme}>
+          <Stack
+            screenOptions={{
+              headerShadowVisible: false,
+              headerStyle: {
+                backgroundColor: "#d7eeed",
+              },
+            }}
+          >
+            <Stack.Screen name="(views)/WelcomeView" options={headerDeatails} />
+            <Stack.Screen
+              name="(views)/GetStartedView"
+              options={headerDeatails}
+            />
+            <Stack.Screen name="(tabs)" options={headerDeatails} />
+            <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+          </Stack>
+        </PaperProvider>
+      </ApolloProvider>
     </Provider>
   );
 }
