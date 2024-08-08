@@ -1,9 +1,8 @@
-import { StyleSheet } from "react-native";
-import HomeScreen from "../(views)/HomeView";
-import { Redirect } from "expo-router";
+import { StyleSheet } from "react-native"
+import HomeLayout from '../(views)/Home/Layout'
 
-export default function HomeTab() {
-  return <HomeScreen />;
+export default function HomeScreen() {
+  return <HomeLayout />;
 }
 
 const styles = StyleSheet.create({

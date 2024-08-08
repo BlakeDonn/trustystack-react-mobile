@@ -5,10 +5,11 @@ import { Button, useTheme, Text as Text } from "react-native-paper";
 import { Image } from "react-native";
 import Header from "@/components/layout/Header";
 import Banner from "@/components/layout/Banner";
-import { useRouter } from "expo-router";
+import { useNavigation, useRouter } from "expo-router";
 
 const { background, buttonSecondary } = customColors.colors;
 export default function GetStartedView() {
+  const navigation = useNavigation()
   const router = useRouter();
   return (
     <View style={styles.page} lightColor={background}>
@@ -35,7 +36,7 @@ export default function GetStartedView() {
         <Button
           mode="contained"
           dark={false}
-          onPress={() => console.log("hi")}
+          onPress={() => navigation.navigate('home')}
           buttonColor={buttonSecondary}
         >
           <Text>Continue as Guest</Text>
